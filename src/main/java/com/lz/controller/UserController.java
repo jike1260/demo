@@ -50,6 +50,7 @@ public class UserController {
     @Result
     @GetMapping("getUser")
     public Object getUser(Integer id) {
+        int i = 1/0;
         //1.查询redis 有:直接返回 无:查询msyql
         Object obj = redisUtil.get(Constants.USER_PREFIX + id);
         if (obj != null) {
@@ -59,8 +60,11 @@ public class UserController {
         //2.查询mysql 有:存redis并返回 无:返回null
         User user = userService.getById(id);
         log.info("查询Mysql:{}", user);
-        redisUtil.set(Constants.USER_PREFIX + id, user);
-        log.info("将用户信息:{}写入Redis ...", user);
+        //3.不为Null写入redis
+        if(user != null){
+            redisUtil.set(Constants.USER_PREFIX + id, user);
+            log.info("将用户信息:{}写入Redis ...", user);
+        }
         return user;
     }
 
