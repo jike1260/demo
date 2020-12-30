@@ -1,4 +1,4 @@
-package com.lz.common;
+package com.lz.frame.common;
 
 /**
  * @ClassName Constants

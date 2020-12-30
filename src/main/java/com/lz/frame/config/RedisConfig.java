@@ -1,4 +1,4 @@
-package com.lz.config;
+package com.lz.frame.config;
 
 import com.alibaba.fastjson.support.spring.FastJsonRedisSerializer;
 import org.springframework.context.annotation.Bean;

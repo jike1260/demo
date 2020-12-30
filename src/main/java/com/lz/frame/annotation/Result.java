@@ -1,4 +1,4 @@
-package com.lz.annotation;
+package com.lz.frame.annotation;
 
 import java.lang.annotation.*;
 

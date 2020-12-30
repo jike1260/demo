@@ -1,8 +1,8 @@
-package com.lz.advice;
+package com.lz.frame.advice;
 
-import com.lz.annotation.Result;
-import com.lz.common.Constants;
-import com.lz.common.R;
+import com.lz.frame.annotation.Result;
+import com.lz.frame.common.Constants;
+import com.lz.frame.common.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;
@@ -44,7 +44,7 @@ public class ResultHandler implements ResponseBodyAdvice<Object> {
 
     @Override
     public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
-        log.info("返回体 重写格式 处理中 ...");
+        log.info("返回体{} 重写格式 处理中 ...", o);
         return R.success(o);
     }
 }

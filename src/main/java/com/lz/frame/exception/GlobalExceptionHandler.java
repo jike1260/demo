@@ -1,6 +1,6 @@
-package com.lz.exception;
+package com.lz.frame.exception;
 
-import com.lz.common.R;
+import com.lz.frame.common.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;

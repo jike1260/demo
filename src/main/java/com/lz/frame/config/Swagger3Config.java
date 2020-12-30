@@ -1,4 +1,4 @@
-package com.lz.config;
+package com.lz.frame.config;
 
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Value;

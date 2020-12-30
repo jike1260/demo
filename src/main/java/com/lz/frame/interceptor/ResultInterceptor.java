@@ -1,7 +1,7 @@
-package com.lz.interceptor;
+package com.lz.frame.interceptor;
 
-import com.lz.annotation.Result;
-import com.lz.common.Constants;
+import com.lz.frame.annotation.Result;
+import com.lz.frame.common.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.method.HandlerMethod;

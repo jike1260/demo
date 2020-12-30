@@ -1,4 +1,4 @@
-package com.lz.config;
+package com.lz.frame.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

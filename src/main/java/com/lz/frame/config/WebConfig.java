@@ -1,6 +1,6 @@
-package com.lz.config;
+package com.lz.frame.config;
 
-import com.lz.interceptor.ResultInterceptor;
+import com.lz.frame.interceptor.ResultInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
