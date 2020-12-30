@@ -11,6 +11,6 @@ ${AnsiColor.GREEN}
     ░                                      ░
 ${AnsiColor.YELLOW}    :: Spring Boot ::              (${spring-boot.version})
 ${AnsiColor.GREEN}
-           +============================+
-           |  Microservice Architecture |
-           +============================+
+           +=============================+
+           |  Microservice Architecture  |
+           +=============================+
