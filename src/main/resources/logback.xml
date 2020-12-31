@@ -25,19 +25,6 @@
         </encoder>
     </appender>
 
-    <!-- Log file detail output -->
-<!--    <appender name="detail" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>${log.path}/detail.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>${log.path}/%d{yyyy-MM, aux}/detail.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
-            <maxFileSize>20MB</maxFileSize>
-            <maxHistory>30</maxHistory>
-        </rollingPolicy>
-        <encoder>
-            <pattern>%date [%thread] %-5level [%logger{50}] %file:%line - %msg%n</pattern>
-        </encoder>
-    </appender>-->
-
     <!-- Log file debug output -->
     <appender name="debug" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <file>${log.path}/debug.log</file>
@@ -71,12 +58,14 @@
     <logger name="com.alibaba.nacos" level="OFF">
         <appender-ref ref="error"/>
     </logger>
+
+    <!-- 自定义logger -->
     <logger name="druid.sql.Statement" level="DEBUG" />
     <logger name="com.lz.mapper" level="TRACE" /><!-- 指向dao包 输出sql -->
 
     <!-- Level: FATAL 0  ERROR 3  WARN 4  INFO 6  DEBUG 7 -->
     <root level="INFO">
         <appender-ref ref="console"/>
-        <!--<appender-ref ref="detail"/>-->
+        <appender-ref ref="debug"/>
     </root>
 </configuration>
