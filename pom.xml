@@ -26,7 +26,7 @@
         <fastjson.version>1.2.75</fastjson.version>
         <!-- docker镜像 -->
         <docker-plugin.version>1.2.2</docker-plugin.version>
-        <docker-host>192.168.1.11:2375</docker-host>
+        <docker-host>http://192.168.1.11:2375</docker-host>
     </properties>
 
     <!-- 依赖管理 -->
@@ -154,8 +154,6 @@
 
     <!-- 构建配置 -->
     <build>
-        <finalName>demo</finalName>
-
         <!-- 资源配置 解决日志文件获取不到项目名的问题 -->
         <resources>
             <resource>
@@ -193,6 +191,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>	<!-- 设置程序执行的主类 -->
                     <mainClass>com.lz.DemoApplication</mainClass>
+                    <skip>true</skip><!-- 跳过测试 -->
                 </configuration>
                 <executions>
                     <execution>
