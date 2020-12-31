@@ -1,4 +1,4 @@
-package com.lz.frame.util;
+package com.lz.frame.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;

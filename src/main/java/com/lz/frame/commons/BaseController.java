@@ -1,4 +1,4 @@
-package com.lz.frame.common;
+package com.lz.frame.commons;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

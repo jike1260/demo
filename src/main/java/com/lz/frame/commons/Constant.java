@@ -1,4 +1,4 @@
-package com.lz.frame.common;
+package com.lz.frame.commons;
 
 /**
  * @ClassName Constants
@@ -6,7 +6,7 @@ package com.lz.frame.common;
  * @Author lz
  * @Date
  */
-public interface Constants {
+public interface Constant {
 
     /** 请求头Key */
     String AUTHORIZATION_HEADER = "Authorization";

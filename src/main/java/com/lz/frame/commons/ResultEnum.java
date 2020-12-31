@@ -1,4 +1,4 @@
-package com.lz.frame.common;
+package com.lz.frame.commons;
 
 /**
  * @Description TODO 状态码枚举
