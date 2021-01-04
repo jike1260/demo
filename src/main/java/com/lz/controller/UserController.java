@@ -1,7 +1,7 @@
 package com.lz.controller;
 
 import com.lz.entity.User;
-import com.lz.frame.annotation.Result;
+import com.lz.frame.commons.BaseController;
 import com.lz.frame.commons.Constant;
 import com.lz.frame.commons.R;
 import com.lz.frame.utils.RedisUtil;
@@ -25,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "用户模块")
 @RestController
 @RequestMapping("/user")
-public class UserController {
+public class UserController extends BaseController {
 
     @Autowired
     private RedisUtil redisUtil;
@@ -33,7 +33,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Result
     @ApiOperation("添加用户")
     @PostMapping("/add")
     public R add(User user) {
@@ -45,7 +44,6 @@ public class UserController {
     }
 
     @ApiOperation("获取用户信息")
-    @Result
     @GetMapping("getUser")
     public R getUser(Integer id) {
 
