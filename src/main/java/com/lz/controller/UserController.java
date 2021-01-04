@@ -1,7 +1,6 @@
 package com.lz.controller;
 
 import com.lz.entity.User;
-import com.lz.frame.commons.BaseController;
 import com.lz.frame.commons.Constant;
 import com.lz.frame.commons.R;
 import com.lz.frame.utils.RedisUtil;
@@ -25,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "用户模块")
 @RestController
 @RequestMapping("/user")
-public class UserController extends BaseController {
+public class UserController{
 
     @Autowired
     private RedisUtil redisUtil;
@@ -69,7 +68,8 @@ public class UserController extends BaseController {
     public R updUser(User user) {
         userService.updateById(user);
         log.info("更新用户信息:mysql ...");
-        redisUtil.set(Constant.USER_PREFIX + user.getId(), user);
+        User user1 = userService.getById(user.getId());
+        redisUtil.set(Constant.USER_PREFIX + user.getId(), user1);
         log.info("更新用户信息:redis ...");
         return R.success(user);
     }

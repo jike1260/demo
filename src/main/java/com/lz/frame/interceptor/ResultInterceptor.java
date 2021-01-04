@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * @ClassName ResResultInterceptor
- * @Description //TODO 拦截器 判断此请求的返回结果是否需要封装
+ * @Description //TODO 拦截器 此处用于验证Token
  * @Author lz
  * @Date 10:14 2020/12/29
  */
@@ -28,10 +28,10 @@ public class ResultInterceptor implements HandlerInterceptor {
         //验证Token
         response.setCharacterEncoding("utf-8");
         String header = request.getHeader(Constant.AUTHORIZATION_HEADER);
-        if (StringUtils.isBlank(header) && !header.startsWith(Constant.TOKEN_PREFIX)) {
+        if (StringUtils.isNotBlank(header) && header.startsWith(Constant.TOKEN_PREFIX)) {
             String token = header.substring(7);
             if (StringUtils.isNotBlank(token)) {
-                // TODO 应与 redis中的token进行比较
+                // TODO 应与 Redis中的Token进行比较
                 return true;
             }
         }

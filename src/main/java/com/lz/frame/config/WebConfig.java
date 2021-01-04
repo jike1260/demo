@@ -1,13 +1,11 @@
 package com.lz.frame.config;
 
-import com.lz.frame.interceptor.ResultInterceptor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
-import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
@@ -30,12 +28,12 @@ public class WebConfig implements WebMvcConfigurer {
      * @Author lz
      * @Date 9:41 2020/11/30
      **/
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new ResultInterceptor())
-                .addPathPatterns("/**")
-                .excludePathPatterns("/v3/**","/swagger-resources/**","/swagger-ui/**","/druid/**");
-    }
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(new ResultInterceptor())
+//                .addPathPatterns("/**")
+//                .excludePathPatterns("/v3/**","/swagger-resources/**","/swagger-ui/**","/druid/**");
+//    }
 
     /**
      * @Description TODO  跨域配置 1允许任何域名使用 2允许任何头 3允许任何方法（post、get等）
