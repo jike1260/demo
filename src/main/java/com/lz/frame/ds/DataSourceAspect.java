@@ -34,13 +34,13 @@ public class DataSourceAspect {
         Method method = signature.getMethod();
         DS ds = method.getAnnotation(DS.class);
         if (null != ds) {
-            DynamicDataSourceContextHolder.setDateSource(ds.value().name());
+            DynamicDataSourceContextHolder.setDataSource(ds.value().name());
         }
         try {
             return point.proceed();
         } finally {
             // 销毁数据源 在执行方法之后
-            DynamicDataSourceContextHolder.clearDateSource();
+            DynamicDataSourceContextHolder.clearDataSource();
         }
     }
 }

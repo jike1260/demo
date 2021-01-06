@@ -20,7 +20,7 @@ public class DynamicDataSourceContextHolder {
     /**
      * 设置数据源的变量
      */
-    public static void setDateSource(String ds) {
+    public static void setDataSource(String ds) {
         log.info("切换到{}数据源", ds);
         CONTEXT_HOLDER.set(ds);
     }
@@ -28,14 +28,14 @@ public class DynamicDataSourceContextHolder {
     /**
      * 获得数据源的变量
      */
-    public static String getDateSource() {
+    public static String getDataSource() {
         return CONTEXT_HOLDER.get();
     }
 
     /**
      * 清空数据源变量
      */
-    public static void clearDateSource() {
+    public static void clearDataSource() {
         CONTEXT_HOLDER.remove();
     }
 }
