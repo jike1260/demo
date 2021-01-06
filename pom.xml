@@ -26,7 +26,7 @@
         <fastjson.version>1.2.75</fastjson.version>
         <!-- docker镜像 -->
         <docker-plugin.version>1.2.2</docker-plugin.version>
-        <docker-host>http://192.168.1.11:2375</docker-host>
+        <docker-host>http://192.168.121.11:2375</docker-host>
     </properties>
 
     <!-- 依赖管理 -->
@@ -180,6 +180,12 @@
                 </configuration>
             </plugin>
 
+            <!-- 打包插件 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
             <!-- 编译插件 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -189,23 +195,6 @@
                     <target>${java.version}</target><!-- 需要生成的目标class文件的编译版本 -->
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
-            </plugin>
-
-            <!-- 打包插件 -->
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>	<!-- 设置程序执行的主类 -->
-                    <mainClass>com.lz.DemoApplication</mainClass>
-                    <skip>true</skip><!-- 跳过测试 -->
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
 
             <!-- docker插件 -->

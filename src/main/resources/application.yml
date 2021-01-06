@@ -10,18 +10,21 @@ spring:
       ds1:
         # ds1
         url: jdbc:mysql://localhost:3306/ds1?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true
+#        url: jdbc:mysql://192.168.1.103:3306/ds1?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true
         username: root
         password: admin123
       ds2:
         # ds2
         enabled: true
         url: jdbc:mysql://localhost:3306/ds2?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true
+#        url: jdbc:mysql://192.168.1.103:3306/ds2?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true
         username: root
         password: admin123
       ds3:
         # ds3
         enabled: true
         url: jdbc:mysql://localhost:3306/ds3?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true
+#        url: jdbc:mysql://192.168.1.103:3306/ds3?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true
         username: root
         password: admin123
       initial-size: 10                            # 初始化时建立物理连接个数
@@ -44,7 +47,7 @@ spring:
       max-pool-prepared-statement-per-connection-size: 20
 
   redis:
-    host: 127.0.0.1
+    host: 192.168.1.103
     port: 6379
     password:
     database: 0
