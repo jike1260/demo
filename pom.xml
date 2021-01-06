@@ -48,6 +48,12 @@
             </exclusions>
         </dependency>
 
+        <!-- aop -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
         <!-- jetty -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

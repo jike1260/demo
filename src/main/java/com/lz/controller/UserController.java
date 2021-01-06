@@ -8,6 +8,7 @@ import com.lz.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(tags = "用户模块")
 @RestController
 @RequestMapping("/user")
-public class UserController{
+public class UserController {
 
     @Autowired
     private RedisUtil redisUtil;
@@ -56,7 +57,7 @@ public class UserController{
         User user = userService.getById(id);
         log.info("查询Mysql:{}", user);
         //3.不为Null写入redis
-        if(user != null){
+        if (user != null) {
             redisUtil.set(Constant.USER_PREFIX + id, user);
             log.info("将用户信息:{}写入Redis ...", user);
         }
@@ -73,4 +74,26 @@ public class UserController{
         log.info("更新用户信息:redis ...");
         return R.success(user);
     }
+
+    /**
+     * @Description //TODO 测试多数据源路由 传id 路由到ds2, 传name 路由到ds3
+     *                      在service的方法上加注解 @DS(DSEnum.ds2) 即可
+     * @Param [user]
+     * @return com.lz.frame.commons.R
+     * @Author LZ
+     * @Date 2021/1/6 11:11
+     **/
+    @ApiOperation("获取用户信息")
+    @GetMapping("getUserInfo")
+    public R getUserInfo(User user) {
+        User u;
+        if (StringUtils.isNotBlank(user.getName())) {
+            u = userService.getUserByName(user.getName());
+        } else {
+            u = userService.getUserById(user.getId());
+        }
+        log.info("获取用户信息:{}", u);
+        return R.success(u);
+    }
+
 }
