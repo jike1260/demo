@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 /**
  * @ClassName UserController
  * @Description //TODO 用户相关
@@ -87,13 +89,25 @@ public class UserController {
     @GetMapping("getUserInfo")
     public R getUserInfo(User user) {
         User u;
+        // 默认库
+        if(null != user.getId()){
+            u = userService.getById(user.getId());
+            log.info("获取用户信息:{}", u);
+            return R.success(u);
+        }
+        // ds2
         if (StringUtils.isNotBlank(user.getName())) {
             u = userService.getUserByName(user.getName());
-        } else {
-            u = userService.getUserById(user.getId());
+            log.info("获取用户信息:{}", u);
+            return R.success(u);
         }
-        log.info("获取用户信息:{}", u);
-        return R.success(u);
+        //ds3
+        if(null != user.getAge()){
+            List<User> list = userService.getUserByAge(user.getAge());
+            log.info("获取用户信息:{}", list);
+            return R.success(list);
+        }
+        return null;
     }
 
 }

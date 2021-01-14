@@ -3,6 +3,8 @@ package com.lz.service;
 import com.lz.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务类
@@ -13,7 +15,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface UserService extends IService<User> {
 
-    User getUserById(Integer id);
-
     User getUserByName(String name);
+
+    List<User> getUserByAge(Integer age);
+
 }

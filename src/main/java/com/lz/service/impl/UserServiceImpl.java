@@ -10,6 +10,8 @@ import com.lz.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * <p>
  *  服务实现类
@@ -26,13 +28,15 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @DS(DSEnum.ds2)
     @Override
-    public User getUserById(Integer id) {
-        return userMapper.selectById(id);
+    public User getUserByName(String name) {
+        return userMapper.selectOne(new QueryWrapper<User>().eq("name",name));
     }
 
     @DS(DSEnum.ds3)
     @Override
-    public User getUserByName(String name) {
-        return userMapper.selectOne(new QueryWrapper<User>().eq("name",name));
+    public List<User> getUserByAge(Integer age) {
+        return userMapper.selectList(new QueryWrapper<User>().eq("age",age));
     }
+
+
 }
